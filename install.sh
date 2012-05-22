@@ -1,18 +1,21 @@
-#!/usr/bin/env bash
+#!/usr/bin/bash
 
-# MongoDB OSX Launchctl Item
-# Author: Andrei Railean (http://andrei.md)
+# MongoDB OSX Launchctl демон
+# 
+# Автор: Andrei Railean (http://andrei.md)
+# 
+# Локализация на русский и допиливание под монгу устанавливаемую из brew: kodji
 if [[ `whoami` != "root" ]]; then
-  echo "This script must be run as root; use sudo"
+  echo "Скрипт необходимо запустить из-под рута"
   exit
 fi
 
-echo "Installing MongoDB Launchctl Item and Restarting Mongo";
+echo "Устанавливаю MongoDB демона";
 
-# create directories
-sudo mkdir -p /opt/local/var/db/mongodb
-sudo mkdir -p /opt/local/var/log/
-sudo touch /opt/local/var/log/mongodb.log
+# создаем папки
+sudo mkdir -p /usr/local/var/db/mongodb
+sudo mkdir -p /usr/local/var/log/
+sudo touch /usr/local/var/log/mongodb.log
 
 # copy PLIST and (re)install it
 sudo cp org.mongo.mongod.plist /System/Library/LaunchDaemons/.
@@ -22,4 +25,4 @@ sudo launchctl unload /System/Library/LaunchDaemons/org.mongo.mongod.plist
 sudo launchctl load /System/Library/LaunchDaemons/org.mongo.mongod.plist
 sudo launchctl start org.mongo.mongod
 
-echo "FINISHED";
+echo "Усё готово, шеф!";

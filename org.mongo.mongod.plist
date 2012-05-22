@@ -8,11 +8,11 @@
 	<true/>
 	<key>ProgramArguments</key>
 	<array>
-		<string>/opt/local/bin/mongod</string>
+		<string>/usr/local/bin/mongod</string>
 		<string>--dbpath</string>
-		<string>/opt/local/var/db/mongodb</string>
+		<string>/usr/local/var/db/mongodb</string>
 		<string>--logpath</string>
-		<string>/opt/local/var/log/mongodb.log</string>
+		<string>/usr/local/var/log/mongodb.log</string>
 	</array>
 </dict>
 </plist>
